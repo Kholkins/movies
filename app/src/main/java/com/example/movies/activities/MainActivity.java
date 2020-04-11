@@ -53,9 +53,30 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray jsonArray = response.getJSONArray("Search");
+
+                    for (int i=0; i < jsonArray.length(); i++){
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        String title = jsonObject.getString("Title");
+                        String year = jsonObject.getString("Year");
+                        String posterURL = jsonObject.getString("Poster");
+
+                        Movie movie = new Movie();
+                        movie.setTitle(title);
+                        movie.setYear(year);
+                        movie.setPosterURL(posterURL);
+
+
+                    }
+
+                    movieAdapter = new MovieAdapter(MainActivity.this, movies);
+
+                    recyclerView.setAdapter(movieAdapter);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+
             }
         }, new Response.ErrorListener() {
             @Override
