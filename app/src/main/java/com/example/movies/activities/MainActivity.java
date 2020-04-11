@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                         movie.setYear(year);
                         movie.setPosterURL(posterURL);
 
-
+                       movies.add(movie);
                     }
 
                     movieAdapter = new MovieAdapter(MainActivity.this, movies);
