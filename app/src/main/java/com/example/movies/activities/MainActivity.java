@@ -84,6 +84,6 @@ public class MainActivity extends AppCompatActivity {
                 error.printStackTrace();
             }
         });
-        requestQueue.add(request);
+        requestQueue.add(request)
     }
 }
